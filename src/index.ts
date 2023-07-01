@@ -10,7 +10,7 @@ import {Client} from 'discord.js'
 import DiscordClient from './helper/DiscordClient';
 
 //instanciating discord.js client
-const client = new Client({intents: []});
+const client = new Client({intents: ['MessageContent', 'DirectMessages' ]});
 
 //instanciating discord manipulation class
 const discordClient = new DiscordClient(client)
