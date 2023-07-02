@@ -13,7 +13,6 @@ class DiscordClient implements IDiscordClient {
 
     start() {
         console.log('Logging in...');
-        this.client.login(process.env.token)
         this.client.on('ready', (c) => {
             console.log(`✅ ${c.user.tag} is online.`)
           })
