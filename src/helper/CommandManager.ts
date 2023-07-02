@@ -1,11 +1,11 @@
 import type ICommandManager from '../interface/ICommandManager'
-import type IDiceManager from '../interface/IDiceManager'
+import type IRandomNumberGenerator from '../interface/IRandomNumberGenerator'
 
 
 class CommandManager implements ICommandManager {
-  constructor(private readonly diceManager: IDiceManager) {}
+  constructor(private readonly randomNumberGenerator: IRandomNumberGenerator) {}
   rollDice(diceSides: number): number {
-    return this.diceManager.roll(diceSides)
+    return this.randomNumberGenerator.generate(1, diceSides)
   }
 }
 
