@@ -12,7 +12,6 @@ class MessageHandler implements IMessageHandler {
   handle (message: Message) {
     if (message.author.username == 'RPG Master') return 
     if (!this.isACommand(message.content)) return
-    
   }
 }
 
