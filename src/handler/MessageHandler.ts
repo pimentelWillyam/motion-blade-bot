@@ -8,29 +8,28 @@ class MessageHandler implements IMessageHandler {
 
   constructor(private readonly commandManager: ICommandManager) {}
 
+  handle (message: Message):void {
+    if (message.author.username == 'RPG Master') return 
+    else if (!this.isACommand(message.content)) return   
+    const treatedMessage =  this.treatMessage(message.content)
+    if ( treatedMessage[0] == 'ajuda'){
+      this.commandManager.help(message)
+    }
+
+    if (treatedMessage[0] == 'rolar' && treatedMessage.length == 2){
+      this.commandManager.roll(message, parseInt(treatedMessage[1]) )
+    }
+
+  }
+
   isACommand (message: string): boolean {
     if (message[0] == '!') return true
     else return false
   }
 
-  handle (message: Message):void {
-    if (message.author.username == 'RPG Master') return 
-    else if (!this.isACommand(message.content)) return
-    else if (message.content == '!d20') {
-      message.reply(this.commandManager.rollDice(20).toString())
-    }
-    else if (message.content == '!d10') {
-      message.reply(this.commandManager.rollDice(10).toString())
-
-    }
-    else if (message.content == '!d5') {
-      message.reply(this.commandManager.rollDice(5).toString())
-
-    }
-    else if (message.content == '!d2') {
-      message.reply(this.commandManager.rollDice(2).toString())
-
-    }
+  treatMessage (rawMessage: string) {
+    const messageWithoutExclamation = rawMessage.slice(1,rawMessage.length!)
+    return messageWithoutExclamation.split(' ')
   }
 }
 
