@@ -12,14 +12,15 @@ class DiscordClient implements IDiscordClient {
     constructor(private readonly client: Client, private readonly messageHandler: IMessageHandler) {}
 
     start() {
-        console.log('Logging in...');
+        console.log('Logging in...')
+        this.client.login(process.env.token)
         this.client.on('ready', (c) => {
             console.log(`✅ ${c.user.tag} is online.`)
           })
     }
 
-    listen() {
-        console.log('Listening...')
+    listenToMessages() {
+        console.log('Listening to messages...')
         this.client.on(Events.MessageCreate, (message: Message) => {
             this.messageHandler.handle(message)
         })
