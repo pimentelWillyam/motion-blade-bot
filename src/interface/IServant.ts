@@ -1,14 +1,10 @@
-
-
 interface IServant {
+  id: string
   masterId: string
   name: string
   profession: string
   seniority: number
-  fortitude: number
-  agility: number
-  strength: number
-  technique: number
+  atributes: Atributes
   isInBattle: boolean
   battlePosition: [number, number]
   
