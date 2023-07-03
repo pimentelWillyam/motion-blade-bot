@@ -1,6 +1,6 @@
 interface IDiscordClient {
   start: () => void
-  listen: () => void
+  listenToMessages: () => void
 }
 
 export default IDiscordClient
