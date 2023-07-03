@@ -9,3 +9,5 @@ class Master implements IMaster {
     this.servantList = servantList
   }
 }
+
+export default Master
