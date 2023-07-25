@@ -1,5 +1,6 @@
 import type ICommandManager from '../interface/ICommandManager'
 import type IRandomNumberGenerator from '../interface/IRandomNumberGenerator'
+import IServant from '../interface/IServant';
 import type IServantManager from '../interface/IServantManager'
 import { type Message } from 'discord.js';
 
@@ -29,6 +30,9 @@ class CommandManager implements ICommandManager {
     console.log('this function is incomplete')
   }
 
+  createBattle(message: Message<boolean>, map: [number, number], participants: IServant[]): void {
+    console.log('this function is incomplete')
+  }
 }
 
 export default CommandManager
