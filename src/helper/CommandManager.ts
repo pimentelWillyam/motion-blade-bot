@@ -30,15 +30,15 @@ class CommandManager implements ICommandManager {
     console.log('this function is incomplete')
   }
 
+  createMaster(message: Message<boolean>, name: string, servantList: IServant[]): void {
+    console.log('this function is incomplete')
+  }
+
   createServant(message: Message<boolean>, name: string, profession: string): void {
     console.log('this function is incomplete')
   }
 
   
-
-  createMaster(message: Message<boolean>, name: string, servantList: IServant[]): void {
-    console.log('this function is incomplete')
-  }
 }
 
 export default CommandManager
