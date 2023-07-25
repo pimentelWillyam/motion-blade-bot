@@ -26,13 +26,15 @@ class CommandManager implements ICommandManager {
     message.reply(this.randomNumberGenerator.generate(1, diceSides).toString())
   }
 
+  createBattle(message: Message<boolean>, map: [number, number], participants: IServant[]): void {
+    console.log('this function is incomplete')
+  }
+
   createServant(message: Message<boolean>, name: string, profession: string): void {
     console.log('this function is incomplete')
   }
 
-  createBattle(message: Message<boolean>, map: [number, number], participants: IServant[]): void {
-    console.log('this function is incomplete')
-  }
+  
 
   createMaster(message: Message<boolean>, name: string, servantList: IServant[]): void {
     console.log('this function is incomplete')
