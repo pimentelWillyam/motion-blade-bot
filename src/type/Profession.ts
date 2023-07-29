@@ -1,5 +1,5 @@
-type profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
+type Profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
 
-export default profession
+export default Profession
 
 
