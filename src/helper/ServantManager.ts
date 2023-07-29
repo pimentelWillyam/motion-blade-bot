@@ -25,6 +25,15 @@ class ServantManager implements IServantManager{
     throw new Error('Could not find servant in database')
   }
 
+  getServantAttributes(name: string): Attributes{
+    this.servantDatabase.map(servant => {
+      if (servant.name == name){
+        return servant.attributes
+      }
+    })
+    throw new Error('Could not find the servant in database')
+  }
+
   getAttributes = (profession: string): Attributes => {
     let attributes: Attributes
     if (profession == 'barbaro'){
