@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv-safe'
 
 dotenv.config()
 
+// importing the uuid generator
+import UuidGenerator from './helper/UuidGenerator';
 // importing the random number generator
 import RandomNumberGenerator from './helper/RandomNumberGenerator';
 
@@ -27,11 +29,13 @@ const client = new Client(
     intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMembers, IntentsBitField.Flags.GuildMessages,IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.DirectMessages],
     partials: [Partials.Channel]})
 
+// instanciating uuid generator
+const uuidGenerator = new UuidGenerator()
 // instanciating the random number generator
 const randomNumberGenerator = new RandomNumberGenerator()
 
 // instanciating the servant manager
-const servantManager = new ServantManager()
+const servantManager = new ServantManager(uuidGenerator)
 
 // instanciating the command manager
 const commandManager = new CommandManager(randomNumberGenerator, servantManager)
