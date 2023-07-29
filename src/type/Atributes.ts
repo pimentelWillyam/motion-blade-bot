@@ -1,4 +1,4 @@
-type Atributes = {
+type atributes = {
   agility: number,
   technique: number,
   strength: number,
