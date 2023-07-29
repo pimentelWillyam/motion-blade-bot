@@ -1,3 +1,3 @@
-type profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'infantryman' | 'Thief'
+type profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
 
 
