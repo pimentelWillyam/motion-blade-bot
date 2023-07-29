@@ -1,9 +1,9 @@
 import type IBattleManager from "../interface/IBattleManager"
-import type IMaster from "../interface/IMaster"
-import type IServant from "../interface/IServant"
+import type Master from "../model/Master"
+import type Servant from "../model/Servant"
 
 class BattleManager implements IBattleManager {
-createBattle = (masterParticipantList: IMaster[], servantParticipantList: IServant): boolean => {
+createBattle = (masterParticipantList: Master[], servantParticipantList: Servant): boolean => {
   return true
 }
 deleteBattle = (id: string): boolean => {
