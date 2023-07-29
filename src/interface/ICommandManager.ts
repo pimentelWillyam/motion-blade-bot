@@ -4,7 +4,7 @@ interface ICommandManager {
   help(message: Message): void
   roll(message: Message, diceSides: number): void
   createServant(message: Message, name: string, profession: string ): void
-  
+  getServantAttributes(message: Message, name: string): void
   }
 
 export default ICommandManager
