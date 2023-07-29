@@ -36,14 +36,29 @@ class CommandManager implements ICommandManager {
   }
 
   createServant(message: Message<boolean>, name: string, profession: Profession): void {
-    this.servantManager.createServant(message.author.username, name, profession)
-    message.reply('Usuário criado com sucesso')
+    const servant = this.servantManager.createServant(message.author.username, name, profession)
+    console.log(`
+
+    `)
+    message.reply(`
+    Usuário criado com sucesso
+    
+    
+    Dados do servo:
+    nome: ${servant.name}
+    agilidade: ${servant.attributes.agility}
+    tecnica: ${servant.attributes.technique}
+    força: ${servant.attributes.strength}
+    fortitude: ${servant.attributes.fortitude}
+    `)
   }
 
   getServantAttributes(message: Message<boolean>, name: string): void {
     const servantAttributes = this.servantManager.getServantAttributes(name)
     const servantAttributesMessage = `
     Os atributos do servo ${name} são:
+
+    
     agilidade: ${servantAttributes.agility}
     tecnica: ${servantAttributes.technique}
     força: ${servantAttributes.strength}
