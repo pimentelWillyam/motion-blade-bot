@@ -1,8 +1,8 @@
 import type IMasterManager from '../interface/IMasterManager';
-import IServant from '../interface/IServant';
+import Servant from '../model/Servant';
 
 class MasterManager implements IMasterManager {
-  createMaster = (id: string, name: string, servantList: IServant[]): boolean => {
+  createMaster = (id: string, name: string, servantList: Servant[]): boolean => {
     return true
   }
 
