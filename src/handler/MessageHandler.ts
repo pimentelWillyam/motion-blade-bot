@@ -19,7 +19,9 @@ class MessageHandler implements IMessageHandler {
     if (treatedMessage[0] == 'rolar' && treatedMessage.length == 2){
       this.commandManager.roll(message, parseInt(treatedMessage[1]) )
     }
-
+    if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo'){
+      this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3])
+    }
   }
 
   isACommand (message: string): boolean {
