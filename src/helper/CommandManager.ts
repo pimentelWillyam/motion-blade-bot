@@ -40,9 +40,22 @@ class CommandManager implements ICommandManager {
     message.reply('Usuário criado com sucesso')
   }
 
-  applyDamageToServant(): void {
-    console.log('this function is incomplete')
+  getServantAttributes(message: Message<boolean>, name: string): void {
+    const servantAttributes = this.servantManager.getServantAttributes(name)
+    const servantAttributesMessage = `
+    Os atributos do servo ${name} são:
+    agilidade: ${servantAttributes.agility}
+    tecnica: ${servantAttributes.technique}
+    força: ${servantAttributes.strength}
+    fortitude: ${servantAttributes.fortitude}
+    `
+    message.reply(servantAttributesMessage)
   }
+
+
+  // applyDamageToServant(name: string, damage: number): void {
+  //   this.servantManager.applyDamageToServant(name, damage)
+  // }
 
   
 }
