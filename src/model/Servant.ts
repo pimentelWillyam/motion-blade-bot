@@ -1,5 +1,5 @@
-import Profession from "../type/Profession"
-import Attributes from '../type/Attributes';
+import type Profession from "../type/Profession"
+import type Attributes from '../type/Attributes';
 
 type Servant = {
   id: string
