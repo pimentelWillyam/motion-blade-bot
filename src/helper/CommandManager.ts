@@ -35,7 +35,7 @@ class CommandManager implements ICommandManager {
   }
 
   createServant(message: Message<boolean>, name: string, profession: string): void {
-    this.servantManager.createServant(this.uuidGenerator.generate(), message.author.username, name, profession)
+    message.reply(this.servantManager.createServant(message.author.username, name, profession))
   }
 
   
