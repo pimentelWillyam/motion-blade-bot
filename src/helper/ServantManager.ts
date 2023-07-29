@@ -1,22 +1,32 @@
 import type IServantManager from "../interface/IServantManager";
 import type Servant from "../model/Servant";
+import type Profession from "../type/Profession";
+import type Attributes from "../type/Attributes";
+import type IUuidGenerator from '../interface/IUuidGenerator';
 
 class ServantManager implements IServantManager{
   servantDatabase: Servant[]
-  constructor() {
+  constructor(readonly uuidGenerator: IUuidGenerator) {
     this.servantDatabase = []
   }
-  createServant = (masterId: string, name: string, profession: profession): Servant => {
-
+  createServant = (masterId: string, name: string, profession: Profession): Servant => {
+      const servant: Servant = {id: this.uuidGenerator.generate(), masterId, name, profession, seniority: 'novice', attributes: this.getAttributes(profession), isInBattle: false, battlePosition: [-1,-1]}
+      this.servantDatabase.push(servant)
+      return servant
     }
 
   deleteServant = (servantMasterId: string, servantId: string): boolean => {
-    console.log('deleteServant')
-    return true
+    for (let i = 0; i <this.servantDatabase.length; i++){
+      if (this.servantDatabase[i].id == servantId) {
+        this.servantDatabase = this.servantDatabase.splice(i,1)
+        return true
+      }
+    }
+    throw new Error('Could not find servant in database')
   }
 
-  getAttributes = (profession: string): attributes => {
-    let attributes: attributes
+  getAttributes = (profession: string): Attributes => {
+    let attributes: Attributes
     if (profession == 'Barbarian'){
       attributes = {
         agility: 4, 
