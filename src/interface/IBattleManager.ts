@@ -1,8 +1,8 @@
-import type IMaster from "./IMaster";
-import type IServant from "./IServant";
+import type Master from "../model/Master";
+import type Servant from "../model/Servant";
 
 interface IBattleManager {
-  createBattle: (masterParticipantList: IMaster[], servantParticipantList: IServant ) => boolean
+  createBattle: (masterParticipantList: Master[], servantParticipantList: Servant ) => boolean
   deleteBattle: (id: string) => boolean
 
 }
