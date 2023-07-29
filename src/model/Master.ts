@@ -1,13 +1,9 @@
-import type IMaster from "../interface/IMaster";
-import type IServant from "../interface/IServant";
+import type Servant from "./Servant";
 
-class Master implements IMaster {
-  servantList: IServant[]
-  constructor(readonly id: string, readonly name: string, servantList: IServant[]) {
-    this.id = id
-    this.name = name
-    this.servantList = servantList
-  }
+type Master = {
+  id: string
+  name: string
+  servantList: Servant[]
 }
 
 export default Master
