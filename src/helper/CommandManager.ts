@@ -68,9 +68,10 @@ class CommandManager implements ICommandManager {
   }
 
 
-  // applyDamageToServant(name: string, damage: number): void {
-  //   this.servantManager.applyDamageToServant(name, damage)
-  // }
+  applyDamageToServant(message: Message<boolean>, name: string, damage: number): void {
+    this.servantManager.applyDamageToServant(name, damage)
+    message.reply(`O servo ${name} sofreu um dano de ${damage}`)
+  }
 
   
 }
