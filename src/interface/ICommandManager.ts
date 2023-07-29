@@ -5,6 +5,8 @@ interface ICommandManager {
   roll(message: Message, diceSides: number): void
   createServant(message: Message, name: string, profession: string ): void
   getServantAttributes(message: Message, name: string): void
+  applyDamageToServant(message: Message, name: string, damage: number): void
+
   }
 
 export default ICommandManager
