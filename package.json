@@ -5,8 +5,9 @@
   "devDependencies": {
     "@types/dotenv-safe": "^8.1.2",
     "@types/node": "^20.3.3",
-    "dotenv-safe": "^8.2.0",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "dotenv-safe": "^8.2.0",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^36.0.0",
     "eslint-plugin-import": "^2.25.2",
@@ -17,6 +18,7 @@
   },
   "dependencies": {
     "discord.js": "^14.11.0",
+    "uuid": "^9.0.0",
     "yarn": "^1.22.19"
   }
 }
