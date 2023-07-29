@@ -1,4 +1,4 @@
-type Profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
+type Profession = 'barbaro' | 'cavaleiro' | 'caçador' | 'escudeiro' | 'infante' | 'ladrao'
 
 export default Profession
 
