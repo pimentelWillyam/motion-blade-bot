@@ -1,3 +1,3 @@
-type profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
+export type profession = 'Barbarian' | 'Knight' | 'Hunter' | 'Squire' | 'Infantryman' | 'Thief'
 
 
