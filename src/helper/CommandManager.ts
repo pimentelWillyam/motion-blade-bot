@@ -1,8 +1,9 @@
 import type ICommandManager from '../interface/ICommandManager'
 import type IRandomNumberGenerator from '../interface/IRandomNumberGenerator'
-import IServant from '../interface/IServant';
+import Servant from '../model/Servant';
 import type IServantManager from '../interface/IServantManager'
 import { type Message } from 'discord.js';
+import type Profession from '../type/Profession';
 
 class CommandManager implements ICommandManager {
   constructor(private readonly randomNumberGenerator: IRandomNumberGenerator, private readonly servantManager: IServantManager) {}
@@ -26,16 +27,21 @@ class CommandManager implements ICommandManager {
     message.reply(this.randomNumberGenerator.generate(1, diceSides).toString())
   }
 
-  createBattle(message: Message<boolean>, map: [number, number], participants: IServant[]): void {
+  createBattle(message: Message<boolean>, map: [number, number], participants: Servant[]): void {
     console.log('this function is incomplete')
   }
 
-  createMaster(message: Message<boolean>, name: string, servantList: IServant[]): void {
+  createMaster(message: Message<boolean>, name: string, servantList: Servant[]): void {
     console.log('this function is incomplete')
   }
 
-  createServant(message: Message<boolean>, name: string, profession: string): void {
-    message.reply(this.servantManager.createServant(message.author.username, name, profession))
+  createServant(message: Message<boolean>, name: string, profession: Profession): void {
+    this.servantManager.createServant(message.author.username, name, profession)
+    message.reply('Usuário criado com sucesso')
+  }
+
+  applyDamageToServant(): void {
+    console.log('this function is incomplete')
   }
 
   
