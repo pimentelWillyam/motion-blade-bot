@@ -25,6 +25,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'pega' && treatedMessage[1] == 'atributos'){
       this.commandManager.getServantAttributes(message, treatedMessage[2])
     }
+    else if (treatedMessage[0] == 'aplica' && treatedMessage[1] == 'dano'){
+      this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
+    }
   }
 
   isACommand (message: string): boolean {
