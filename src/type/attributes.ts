@@ -1,4 +1,4 @@
-type attributes = {
+export type attributes = {
   agility: number,
   technique: number,
   strength: number,
