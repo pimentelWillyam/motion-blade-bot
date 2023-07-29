@@ -1,7 +1,7 @@
-import type IServant from "./IServant"
+import type Servant from "../model/Servant"
 
 interface IMasterManager {
-  createMaster: (id: string, name: string, servantList: IServant[] ) => boolean
+  createMaster: (id: string, name: string, servantList: Servant[] ) => boolean
   deleteMaster: (id: string) => boolean
 }
 
