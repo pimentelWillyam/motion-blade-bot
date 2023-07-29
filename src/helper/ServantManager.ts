@@ -27,7 +27,7 @@ class ServantManager implements IServantManager{
 
   getAttributes = (profession: string): Attributes => {
     let attributes: Attributes
-    if (profession == 'Barbarian'){
+    if (profession == 'barbaro'){
       attributes = {
         agility: 4, 
         strength: 4, 
@@ -35,7 +35,7 @@ class ServantManager implements IServantManager{
         fortitude: 0
       }
     }
-    else if (profession == 'Hunter'){
+    else if (profession == 'caçador'){
       attributes = {
         agility: 3, 
         strength: 0, 
@@ -43,7 +43,7 @@ class ServantManager implements IServantManager{
         fortitude: 0
       }
     }
-    else if (profession == 'Knight'){
+    else if (profession == 'cavaleiro'){
       attributes = {
         agility: 0, 
         strength: 0, 
@@ -51,7 +51,7 @@ class ServantManager implements IServantManager{
         fortitude: 8
       }
     }
-    else if (profession == 'Squire'){
+    else if (profession == 'escudeiro'){
       attributes = {
         agility: 0, 
         strength: 0, 
@@ -59,7 +59,7 @@ class ServantManager implements IServantManager{
         fortitude: 4
       }
     }
-    else if (profession == 'Thief'){
+    else if (profession == 'ladrao'){
       attributes = {
         agility: 5, 
         strength: 0, 
@@ -67,7 +67,7 @@ class ServantManager implements IServantManager{
         fortitude: 0
       }
     }
-    else if (profession == 'Infantryman'){
+    else if (profession == 'infante'){
       attributes = {
         agility: 0, 
         strength: 3, 
