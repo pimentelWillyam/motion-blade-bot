@@ -7,6 +7,7 @@ interface IServantManager {
   deleteServant: (servantMasterId: string, servantId: string) => boolean
   getAttributes: (profession: string) => Attributes  
   getServantAttributes: (name: string) => Attributes
+  applyDamageToServant: (name: string, damage: number) => Attributes
 }
 
 export default IServantManager
