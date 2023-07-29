@@ -16,11 +16,14 @@ class MessageHandler implements IMessageHandler {
       this.commandManager.help(message)
     }
 
-    if (treatedMessage[0] == 'rolar' && treatedMessage.length == 2){
+    else if (treatedMessage[0] == 'rolar' && treatedMessage.length == 2){
       this.commandManager.roll(message, parseInt(treatedMessage[1]) )
     }
-    if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo'){
+    else if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo'){
       this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3])
+    }
+    else if (treatedMessage[0] == 'pega' && treatedMessage[1] == 'atributos'){
+      this.commandManager.getServantAttributes(message, treatedMessage[2])
     }
   }
 
