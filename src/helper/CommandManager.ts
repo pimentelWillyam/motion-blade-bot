@@ -18,7 +18,7 @@ class CommandManager implements ICommandManager {
     2- Classes
       A função rolar é responsável por rolar um dado de n lados
       Ela é usada no formato: !rolar (nLados)
-"
+
       
     3- Rolar
       A função rolar é responsável por rolar um dado de n lados
@@ -34,6 +34,13 @@ class CommandManager implements ICommandManager {
     `
 
     message.reply(guideMessage)  
+  }
+
+  classes(message: Message): void {
+    const classesMessage = `
+    As classes são: bárbaro, cavaleiro, caçador, escudeiro, infante e ladrão
+    `
+    message.reply(classesMessage)
   }
 
   roll(message: Message, diceSides: number): void {
