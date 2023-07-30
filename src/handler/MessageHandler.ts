@@ -15,7 +15,9 @@ class MessageHandler implements IMessageHandler {
     if ( treatedMessage[0] == 'ajuda'){
       this.commandManager.help(message)
     }
-
+    else if ( treatedMessage[0] == 'classes'){
+      this.commandManager.classes(message)
+    }
     else if (treatedMessage[0] == 'rolar' && treatedMessage.length == 2){
       this.commandManager.roll(message, parseInt(treatedMessage[1]) )
     }
@@ -29,7 +31,7 @@ class MessageHandler implements IMessageHandler {
       this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
     }
     else{
-      message.reply('Comando inválido')
+      message.reply('Comando inexistente')
     }
   }
 
