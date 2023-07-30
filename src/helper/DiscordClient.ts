@@ -22,7 +22,12 @@ class DiscordClient implements IDiscordClient {
     listenToMessages() {
         console.log('Listening to messages...')
         this.client.on(Events.MessageCreate, (message: Message) => {
+            try {
             this.messageHandler.handle(message)
+                
+            } catch (error) {
+                message.reply('Durante a execução deste comando houve um erro')
+            }
         })
     }
 }
