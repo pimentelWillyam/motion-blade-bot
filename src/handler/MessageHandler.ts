@@ -28,6 +28,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'aplica' && treatedMessage[1] == 'dano'){
       this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
     }
+    else{
+      message.reply('Comando inválido')
+    }
   }
 
   isACommand (message: string): boolean {
