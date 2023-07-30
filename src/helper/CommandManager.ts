@@ -11,13 +11,26 @@ class CommandManager implements ICommandManager {
   help(message: Message<boolean>): void {
     const guideMessage = `
     Olá, sou o Bot responsável por administrar as operações relacionadas ao RPG. Atualmente, a lista de funcionalidades está em expansão, as funcionalidades que o bot possui até agora são:\n
-    1- Help
+    1- Ajuda
       A função help é responsável por informar sobre os comandos existentes e como aplica-los.
-      Ela é usada no formato: !help
-    
-    2- Rolar
+      Ela é usada no formato: !ajuda
+ 
+    2- Classes
       A função rolar é responsável por rolar um dado de n lados
       Ela é usada no formato: !rolar (nLados)
+"
+      
+    3- Rolar
+      A função rolar é responsável por rolar um dado de n lados
+      Ela é usada no formato: !rolar (nLados)
+
+    4- Criar Servo
+      A função criar é responsável por criar um servo.
+      Ela é usada no formato: !criar servo (nomeServo) (classeServo)
+
+    5-Pega Atributos
+      A função pega atributos é responsável por buscar atributos do servo no banco de dados.
+      Ela é usada no formato: !pega atributos (nomeServo)
     `
 
     message.reply(guideMessage)  
