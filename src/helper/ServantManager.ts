@@ -98,6 +98,14 @@ class ServantManager implements IServantManager{
     }
     return attributes
   }
+
+  applyDamageToServant(name: string, damage: number): Attributes {
+    var servant = this.getServantByName(name)
+    servant = this.dealDamage(damage, servant)
+    return servant.attributes
+  }
+
+    
 }
 
 export default ServantManager
