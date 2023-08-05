@@ -26,12 +26,12 @@ class ServantManager implements IServantManager{
   }
 
   getServantByName(name: string): Servant {
-    this.servantDatabase.map(servant => {
-      if (servant.name == name){
-        return servant
+    for (let i=0;i<this.servantDatabase.length; i++) {
+      if (this.servantDatabase[i].name == name){
+        return this.servantDatabase[i]
       }
-    })
-    throw new Error('Could not find the servant in database')
+    }
+    throw new Error('O Servo nomeado não existe')
   }
 
   getServantAttributes(name: string): Attributes{
