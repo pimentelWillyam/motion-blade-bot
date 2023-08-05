@@ -100,45 +100,46 @@ class ServantManager implements IServantManager{
     return servant.attributes
   }
 
-  dealDamage(damage: number, servant: Servant): Servant {
-    if (damage === 0) return servant
-    else if (servant.attributes.agility != 0 && servant.attributes.agility >= damage){
+  dealDamage(damage: number, servant: Servant): [Servant, number] {
+    if (servant.attributes.agility != 0 && servant.attributes.agility >= damage){
       servant.attributes.agility -= damage
-      this.dealDamage(damage, servant)
+      return [servant, 0]
     }
     else if (servant.attributes.agility != 0 && servant.attributes.agility < damage){
       damage -= servant.attributes.agility
       servant.attributes.agility = 0
-      this.dealDamage(damage,servant) 
+      return [servant, damage]
     }
     else if (servant.attributes.technique != 0 && servant.attributes.technique >= damage){
       servant.attributes.technique -= damage
-      this.dealDamage(damage, servant)
+      return [servant, 0]
     }
     else if (servant.attributes.technique != 0 && servant.attributes.technique < damage){
       damage -= servant.attributes.technique
       servant.attributes.technique = 0
-      this.dealDamage(damage,servant) 
+      return [servant, damage]
     }
     else if (servant.attributes.strength != 0 && servant.attributes.strength >= damage){
       servant.attributes.strength -= damage
-      this.dealDamage(damage, servant)
+      return [servant, 0]
     }
     else if (servant.attributes.strength != 0 && servant.attributes.strength < damage){
       damage -= servant.attributes.strength
       servant.attributes.strength = 0
-      this.dealDamage(damage,servant) 
+      return [servant, damage]
     }
     else if (servant.attributes.fortitude != 0 && servant.attributes.fortitude >= damage){
       servant.attributes.fortitude -= damage
-      this.dealDamage(damage, servant)
+      return [servant, 0]
     }
     else if (servant.attributes.fortitude != 0 && servant.attributes.fortitude < damage){
       damage -= servant.attributes.fortitude
       servant.attributes.fortitude = 0
-      this.dealDamage(damage,servant) 
+      return [servant, damage]      
     }
-    throw new Error('Unknown error')
+    else{
+      throw new Error('Erro inesperado na aplicação do dano desse servo')
+    }
   }
 
     
