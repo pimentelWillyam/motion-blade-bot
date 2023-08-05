@@ -26,7 +26,14 @@ class DiscordClient implements IDiscordClient {
             this.messageHandler.handle(message)
                 
             } catch (error) {
-                message.reply('Durante a execução deste comando houve um erro')
+                if (error instanceof Error) {
+                    console.error(error)
+                    message.reply(error.message)
+                }
+                else{
+                    console.error(error)
+                    message.reply('Aconteceu um erro inesperado')
+                }
             }
         })
     }
