@@ -94,10 +94,17 @@ class ServantManager implements IServantManager{
     return attributes
   }
 
-  applyDamageToServant(name: string, damage: number): Attributes {
+  applyDamageToServant(name: string, damageToDeal: number): Attributes {
     var servant = this.getServantByName(name)
-    servant = this.dealDamage(damage, servant)
+    let damageNotDealt = damageToDeal
+    let functionReturn: [Servant, number] 
+    while(damageNotDealt !== 0){
+      functionReturn = this.dealDamage(damageNotDealt, servant)
+      servant = functionReturn[0]
+      damageNotDealt = functionReturn[1]
+    }
     return servant.attributes
+
   }
 
   dealDamage(damage: number, servant: Servant): [Servant, number] {
