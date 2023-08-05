@@ -24,7 +24,7 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo'){
       this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3])
     }
-    else if (treatedMessage[0] == 'pega' && treatedMessage[1] == 'atributos'){
+    else if (treatedMessage[0] == 'pegar' && treatedMessage[1] == 'atributos'){
       this.commandManager.getServantAttributes(message, treatedMessage[2])
     }
     else if (treatedMessage[0] == 'aplica' && treatedMessage[1] == 'dano'){
