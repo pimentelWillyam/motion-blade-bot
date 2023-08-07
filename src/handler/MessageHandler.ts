@@ -23,7 +23,7 @@ class MessageHandler implements IMessageHandler {
       this.commandManager.roll(message, parseInt(treatedMessage[1]) )
     }
     else if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo'){
-      this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3])
+      this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3] as Profession)
     }
     else if (treatedMessage[0] == 'pegar' && treatedMessage[1] == 'atributos'){
       this.commandManager.getServantAttributes(message, treatedMessage[2])
