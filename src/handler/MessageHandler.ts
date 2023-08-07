@@ -2,6 +2,7 @@ import type IMessageHandler from "../interface/IMessageHandler"
 import type ICommandManager from '../interface/ICommandManager'
 
 import { type Message } from "discord.js"
+import type Profession from "../type/Profession"
 
 
 class MessageHandler implements IMessageHandler {
