@@ -6,9 +6,9 @@ interface IServantManager {
   createServant: (masterId: string, name: string, profession: Profession) => Servant
   deleteServant: (servantMasterId: string, servantId: string) => boolean
   getAttributes: (profession: string) => Attributes  
-  getServantByName: (name: string) => Servant
+  getServantPositionByName: (name: string) => number
   getServantAttributes: (name: string) => Attributes
-  applyDamageToServant: (name: string, damage: number) => Attributes
+  applyDamageToServant: (name: string, damage: number) => Attributes | null
 }
 
 export default IServantManager

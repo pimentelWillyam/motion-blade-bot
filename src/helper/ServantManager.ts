@@ -10,32 +10,73 @@ class ServantManager implements IServantManager{
     this.servantDatabase = []
   }
   createServant = (masterId: string, name: string, profession: Profession): Servant => {
-      const servant: Servant = {id: this.uuidGenerator.generate(), masterId, name, profession, seniority: 'novice', attributes: this.getAttributes(profession), isInBattle: false, battlePosition: [-1,-1]}
-      this.servantDatabase.push(servant)
-      return servant
+      if (this.getServantPositionByName(name) === -1) {
+        const servant: Servant = {id: this.uuidGenerator.generate(), masterId, name, profession, seniority: 'novice', attributes: this.getAttributes(profession), isInBattle: false, battlePosition: [-1,-1]}
+        this.servantDatabase.push(servant)
+        return servant
     }
+  console.log(this.servantDatabase)
+  throw new Error('Já existe um servo com este nome, tente usar o comando novamente com um novo nome')
+  }
 
-  deleteServant = (servantMasterId: string, servantId: string): boolean => {
+  deleteServant = (servantMasterId: string, name: string): boolean => {
     for (let i = 0; i <this.servantDatabase.length; i++){
-      if (this.servantDatabase[i].id == servantId) {
-        this.servantDatabase = this.servantDatabase.splice(i,1)
+      if (this.servantDatabase[i].name == name) {
+        this.servantDatabase.splice(i, 1)
         return true
       }
     }
-    throw new Error('Could not find servant in database')
+    throw new Error('Não foi posível remover o servo')
   }
 
-  getServantByName(name: string): Servant {
-    for (let i=0;i<this.servantDatabase.length; i++) {
-      if (this.servantDatabase[i].name == name){
-        return this.servantDatabase[i]
+  getServantAgilityByName = (name: string): number => {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition != -1) {
+      return this.servantDatabase[servantPosition].attributes.agility
+    }
+    throw new Error('Não foi posível encontrar o servo referenciado')
+  }
+
+  getServantTechniqueByName = (name: string): number => {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition != -1) {
+      return this.servantDatabase[servantPosition].attributes.technique
+    }
+    throw new Error('Não foi posível encontrar o servo referenciado')
+  }
+
+  getServantStrengthByName = (name: string): number => {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition != -1) {
+      return this.servantDatabase[servantPosition].attributes.strength
+    }
+    throw new Error('Não foi posível encontrar o servo referenciado')
+  }
+
+  getServantFortitudeByName = (name: string): number => {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition != -1) {
+      return this.servantDatabase[servantPosition].attributes.fortitude
+    }
+    throw new Error('Não foi posível encontrar o servo referenciado')
+  }
+  
+  getServantPositionByName(name: string): number {
+    for (let servantPosition = 0 ; servantPosition <this.servantDatabase.length; servantPosition++) {
+      if (this.servantDatabase[servantPosition].name == name){
+        return servantPosition
       }
     }
-    throw new Error('O Servo nomeado não existe')
+    return -1
   }
 
   getServantAttributes(name: string): Attributes{
-    return this.getServantByName(name).attributes
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition !== -1) return this.servantDatabase[servantPosition].attributes
+    else{
+      throw new Error('Não foi posível encontrar o usuário referenciado')
+
+    }
   }
 
   getAttributes = (profession: string): Attributes => {
@@ -89,22 +130,25 @@ class ServantManager implements IServantManager{
       }
     }
     else{
-      throw new Error('Invalid profession')
+      throw new Error('Profissão Inválida')
     }
     return attributes
   }
 
-  applyDamageToServant(name: string, damageToDeal: number): Attributes {
-    var servant = this.getServantByName(name)
+  applyDamageToServant(name: string, damageToDeal: number): Attributes | null {
+    const servantPosition = this.getServantPositionByName(name)
     let damageNotDealt = damageToDeal
     let functionReturn: [Servant, number] 
     while(damageNotDealt !== 0){
-      functionReturn = this.dealDamage(damageNotDealt, servant)
-      servant = functionReturn[0]
+      functionReturn = this.dealDamage(damageNotDealt, this.servantDatabase[servantPosition])
+      this.servantDatabase[servantPosition] = functionReturn[0]
       damageNotDealt = functionReturn[1]
     }
-    return servant.attributes
-
+    if (this.servantDatabase[servantPosition].attributes.agility === 0 && this.servantDatabase[servantPosition].attributes.technique === 0  && this.servantDatabase[servantPosition].attributes.strength === 0 && this.servantDatabase[servantPosition].attributes.fortitude === 0) {
+      this.deleteServant('', this.servantDatabase[servantPosition].name)
+      return null
+    }
+    return this.servantDatabase[servantPosition].attributes
   }
 
   dealDamage(damage: number, servant: Servant): [Servant, number] {

@@ -31,6 +31,16 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'aplicar' && treatedMessage[1] == 'dano'){
       this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
     }
+    else if (treatedMessage[0] == 'teste'){
+      this.commandManager.createServant(message, 'willyam', 'cavaleiro')
+      this.commandManager.getServantAttributes(message, 'willyam')
+      this.commandManager.applyDamageToServant(message, 'willyam', 5)
+      this.commandManager.getServantAttributes(message, 'willyam')
+      this.commandManager.applyDamageToServant(message, 'willyam', 2)
+      this.commandManager.getServantAttributes(message, 'willyam')
+      this.commandManager.applyDamageToServant(message, 'willyam', 1)
+      this.commandManager.getServantAttributes(message, 'willyam')
+    }
     else{
       message.reply('Comando inexistente')
     }
