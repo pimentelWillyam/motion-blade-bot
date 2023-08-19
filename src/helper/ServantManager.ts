@@ -193,7 +193,11 @@ class ServantManager implements IServantManager{
     }
   }
 
-    
+  rollServantAgility(name: string, diceResult: number){
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error('O servo solicitado não existe')
+    return this.servantDatabase[servantPosition].attributes.agility + diceResult
+  }
 }
 
 export default ServantManager
