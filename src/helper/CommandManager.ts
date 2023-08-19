@@ -117,6 +117,10 @@ class CommandManager implements ICommandManager {
     const diceResult = this.servantManager.rollServantStrength(name, this.randomNumberGenerator.generate(1,10))
     message.reply(`O servo ${name} tirou ${diceResult} de força`)
   }
+
+  rollServantFortitude(message: Message<boolean>, name: string){
+    const diceResult = this.servantManager.rollServantFortitude(name, this.randomNumberGenerator.generate(1,10))
+    message.reply(`O servo ${name} tirou ${diceResult} de fortitude`)
   }
 
   
