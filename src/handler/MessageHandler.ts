@@ -33,6 +33,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] === 'agilidade'){
       this.commandManager.rollServantAgility(message, treatedMessage[1])
     }
+    else if (treatedMessage[0] === 'tecnica'){
+      this.commandManager.rollServantTechnique(message, treatedMessage[1])
+    }
     else{
       message.reply('Comando inexistente')
     }
