@@ -9,6 +9,10 @@ interface IServantManager {
   getServantPositionByName: (name: string) => number
   getServantAttributes: (name: string) => Attributes
   applyDamageToServant: (name: string, damage: number) => Attributes | null
+  rollServantAgility: (name: string, diceResult: number) => number
+  rollServantTechnique: (name: string, diceResult: number) => number
+  rollServantStrength: (name: string, diceResult: number) => number
+  rollServantFortitude: (name: string, diceResult: number) => number
 }
 
 export default IServantManager
