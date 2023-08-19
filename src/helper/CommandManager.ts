@@ -101,7 +101,6 @@ class CommandManager implements ICommandManager {
     const attributes = this.servantManager.applyDamageToServant(name, damage)
     message.reply(`O servo ${name} sofreu um dano de ${damage}`)
     if (attributes === null) message.reply(`O servo ${name} foi morto`)
-    console.log(attributes)
 
   }
 
