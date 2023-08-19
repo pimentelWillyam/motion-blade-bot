@@ -211,6 +211,12 @@ class ServantManager implements IServantManager{
     return this.servantDatabase[servantPosition].attributes.strength + diceResult
   }
 
+  rollServantFortitude(name: string, diceResult: number){
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error('O servo solicitado não existe')
+    return this.servantDatabase[servantPosition].attributes.fortitude + diceResult
+  }
+
 }
 
 export default ServantManager
