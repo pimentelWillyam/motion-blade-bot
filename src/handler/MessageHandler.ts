@@ -4,7 +4,6 @@ import type ICommandManager from '../interface/ICommandManager'
 import { type Message } from "discord.js"
 import type Profession from "../type/Profession"
 
-
 class MessageHandler implements IMessageHandler {
 
   constructor(private readonly commandManager: ICommandManager) {}
@@ -30,6 +29,9 @@ class MessageHandler implements IMessageHandler {
     }
     else if (treatedMessage[0] == 'aplicar' && treatedMessage[1] == 'dano'){
       this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
+    }
+    else if (treatedMessage[0] === 'agilidade'){
+      this.commandManager.rollServantAgility(message, treatedMessage[1])
     }
     else{
       message.reply('Comando inexistente')
