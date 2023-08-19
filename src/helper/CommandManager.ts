@@ -108,6 +108,11 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} tirou ${diceResult} de agilidade`)
   }
 
+  rollServantTechnique(message: Message<boolean>, name: string){
+    const diceResult = this.servantManager.rollServantTechnique(name, this.randomNumberGenerator.generate(1,20))
+    message.reply(`O servo ${name} tirou ${diceResult} de técnica`)
+  }
+
   }
 
   
