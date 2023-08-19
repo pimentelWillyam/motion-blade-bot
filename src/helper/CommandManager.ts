@@ -101,6 +101,12 @@ class CommandManager implements ICommandManager {
     const attributes = this.servantManager.applyDamageToServant(name, damage)
     message.reply(`O servo ${name} sofreu um dano de ${damage}`)
     if (attributes === null) message.reply(`O servo ${name} foi morto`)
+  }
+
+  rollServantAgility(message: Message<boolean>, name: string){
+    const diceResult = this.servantManager.rollServantAgility(name, this.randomNumberGenerator.generate(1,20))
+    message.reply(`O servo ${name} tirou ${diceResult} de agilidade`)
+  }
 
   }
 
