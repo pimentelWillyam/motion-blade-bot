@@ -77,6 +77,19 @@ class CommandManager implements ICommandManager {
   }
   }
 
+  getServant(message: Message<boolean>, name: string): void {
+    const servant = this.servantManager.getServant(name)
+    const servantAttributesMessage = `
+    Os atributos do servo ${name} são:
+
+    agilidade: ${servant.attributes.agility}
+    tecnica: ${servant.attributes.technique}
+    força: ${servant.attributes.strength}
+    fortitude: ${servant.attributes.fortitude}
+    guarda: ${servant.guard}
+    `
+    message.reply(servantAttributesMessage)
+    return
     }
       const servantAttributesMessage = `
       Os atributos do servo ${name} são:
