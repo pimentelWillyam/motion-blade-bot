@@ -77,11 +77,6 @@ class CommandManager implements ICommandManager {
   }
   }
 
-  getServantAttributes(message: Message<boolean>, name: string): void {
-    const servantAttributes = this.servantManager.getServantAttributes(name)
-    if (servantAttributes.agility === undefined || servantAttributes.technique === undefined || servantAttributes.strength === undefined || servantAttributes.fortitude === undefined){
-      console.log('algo errado nao esta certo')
-      throw new Error('Não foi possível encontrar o usuário referenciado')
     }
       const servantAttributesMessage = `
       Os atributos do servo ${name} são:
