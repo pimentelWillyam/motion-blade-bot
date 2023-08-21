@@ -42,6 +42,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] === 'fortitude'){
       this.commandManager.rollServantFortitude(message, treatedMessage[1])
     }
+    else if (treatedMessage[1] === 'ataca'){
+      this.commandManager.rollServantAttack(message, treatedMessage[0], treatedMessage[2])
+    }
     else{
       message.reply('Comando inexistente')
     }
