@@ -91,6 +91,9 @@ class CommandManager implements ICommandManager {
     message.reply(servantAttributesMessage)
     return
     }
+
+  getServantAttributes(message: Message<boolean>, name: string): void {
+    const servant = this.servantManager.getServant(name)
       const servantAttributesMessage = `
       Os atributos do servo ${name} são:
   
