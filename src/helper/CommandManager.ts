@@ -135,6 +135,17 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} tirou ${diceResult} de fortitude`)
   }
 
+  rollServantAttack(message: Message<boolean>, attackerName: string, defenderName: string){
+    const attackerDiceResult = this.randomNumberGenerator.generate(1,20)
+    const defenderDiceResult = this.randomNumberGenerator.generate(1,20)
+    const attackResultMessage = this.servantManager.attack(attackerName, attackerDiceResult, defenderName, defenderDiceResult)
+    if (attackResultMessage === 'Acerto') message.reply(`${attackerName} tentou acertar ${defenderName} e conseguiu atingir seu inimigo!`)
+    if (attackResultMessage === 'Contra-ataque') message.reply(`${attackerName} tentou acertar ${defenderName} mas acabou sofrendo um contra-ataque`)
+    if (attackResultMessage === 'Desarme') message.reply(`${attackerName} tentou acertar ${defenderName} mas acabou sendo desarmado`)
+    if (attackResultMessage === 'Desvio') message.reply(`${attackerName} tentou acertar ${defenderName} mas ${defenderName} conseguiu se esquivar`)
+    if (attackResultMessage === 'Defesa') message.reply(`${attackerName} tentou acertar ${defenderName} mas ${defenderName} bloqueou o golpe`)
+  }
+
   
 }
 
