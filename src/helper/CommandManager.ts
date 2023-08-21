@@ -98,10 +98,6 @@ class CommandManager implements ICommandManager {
       Os atributos do servo ${name} são:
   
       
-      agilidade: ${servantAttributes.agility}
-      tecnica: ${servantAttributes.technique}
-      força: ${servantAttributes.strength}
-      fortitude: ${servantAttributes.fortitude}
       `
       message.reply(servantAttributesMessage)
       return
