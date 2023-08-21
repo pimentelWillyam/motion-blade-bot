@@ -146,6 +146,12 @@ class CommandManager implements ICommandManager {
     if (attackResultMessage === 'Defesa') message.reply(`${attackerName} tentou acertar ${defenderName} mas ${defenderName} bloqueou o golpe`)
   }
 
+  rollServantGuard(message: Message<boolean>, name: string){
+    const guard = this.randomNumberGenerator.generate(1,4)
+    this.servantManager.applyGuardOnServant(name, guard)
+    message.reply(`${name} entrou em uma guarde de ${guard} pontos`)
+  }
+
   
 }
 
