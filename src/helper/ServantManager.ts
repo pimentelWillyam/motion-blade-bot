@@ -167,6 +167,16 @@ class ServantManager implements IServantManager{
     return this.servantDatabase[servantPosition].attributes
   }
 
+  healServant(name: string, attributeToHeal: string, quantityToHeal: number): void {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error(`O servo ${name} não existe`)
+    if (attributeToHeal === 'agilidade') this.servantDatabase[servantPosition].attributes.agility += quantityToHeal
+    else if (attributeToHeal === 'tecnica') this.servantDatabase[servantPosition].attributes.technique += quantityToHeal
+    else if (attributeToHeal === 'força') this.servantDatabase[servantPosition].attributes.strength += quantityToHeal
+    else if (attributeToHeal === 'fortitude') this.servantDatabase[servantPosition].attributes.fortitude += quantityToHeal
+    else throw new Error('Atributo inválido ')
+  }
+
   dealDamage(damage: number, servant: Servant): [Servant, number] {
     if (servant.attributes.agility != 0 && servant.attributes.agility >= damage){
       servant.attributes.agility -= damage
