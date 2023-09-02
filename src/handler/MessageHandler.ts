@@ -30,6 +30,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'aplicar' && treatedMessage[1] == 'dano'  && treatedMessage.length == 4){
       this.commandManager.applyDamageToServant(message, treatedMessage[2], parseInt(treatedMessage[3]))
     }
+    else if (treatedMessage[0] == 'curar'&& treatedMessage.length == 4){
+      this.commandManager.healServant(message, treatedMessage[1], treatedMessage[2], parseInt(treatedMessage[3]))
+    }
     else if (treatedMessage[0] === 'agilidade' && treatedMessage.length == 2){
       this.commandManager.rollServantAgility(message, treatedMessage[1])
     }
