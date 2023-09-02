@@ -42,7 +42,17 @@ class CommandManager implements ICommandManager {
       
       !aplicar dano (nomeServo) (danoASerAplicado)
 
-    7- Teste de atributo
+      7-Curar Servo
+      A função curar servo é responsável por adicionar atributos ao servo mencionado. Ela é usada no formato: 
+      
+      !curar (atributo) (nomeServo)
+      
+      8-Armar Servo
+      A função armar servo é responsável por devolver uma arma ao servo mencionado. Ela é usada no formato: 
+      
+      !armar (nomeServo)
+      
+
       A função Teste de atributo é responsável por testar o atributo de determinado servo. Ela é usada no formato:
 
       !(atributo) (nomeServo)
