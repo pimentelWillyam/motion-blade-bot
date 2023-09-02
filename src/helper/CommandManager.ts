@@ -53,7 +53,7 @@ class CommandManager implements ICommandManager {
 
   classes(message: Message): void {
     const classesMessage = `
-    As classes são: bárbaro, cavaleiro, caçador, escudeiro, infante e ladrão
+    As classes são: bárbaro, cavaleiro, caçador, escudeiro, infante, ladrão e monge
     `
     message.reply(classesMessage)
   }
