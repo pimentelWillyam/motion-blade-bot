@@ -263,6 +263,14 @@ class ServantManager implements IServantManager{
     if (servantPosition == -1) throw new Error(`O servo ${name} não existe`)
     this.servantDatabase[servantPosition].guard = guardToBeApplied
   }
+
+  armServant(name: string): void{
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error(`O servo ${name} não existe`)
+    if (this.servantDatabase[servantPosition].isArmed) throw new Error(`O servo ${name} já está armado`)
+    this.servantDatabase[servantPosition].isArmed = true
+  }
+
 }
 
 export default ServantManager
