@@ -53,6 +53,7 @@ class CommandManager implements ICommandManager {
       !armar (nomeServo)
       
 
+    9- Teste de atributo
       A função Teste de atributo é responsável por testar o atributo de determinado servo. Ela é usada no formato:
 
       !(atributo) (nomeServo)
