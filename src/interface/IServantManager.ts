@@ -1,4 +1,5 @@
 import type Servant from "../model/Servant"
+import type AttackResult from "../type/AttackResult"
 import type Attributes from "../type/Attributes"
 import type Profession from "../type/Profession"
 
