@@ -48,6 +48,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] === 'guarda'){
       this.commandManager.rollServantGuard(message, treatedMessage[1])
     }
+    else if (treatedMessage[0] === 'armar'){
+      this.commandManager.armServant(message, treatedMessage[1])
+    }
     else{
       message.reply('Comando inexistente')
     }
