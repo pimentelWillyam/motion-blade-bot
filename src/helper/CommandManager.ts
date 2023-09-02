@@ -12,28 +12,40 @@ class CommandManager implements ICommandManager {
     const guideMessage = `
     Olá, sou o Bot responsável por administrar as operações relacionadas ao RPG. Atualmente, a lista de funcionalidades está em expansão, as funcionalidades que o bot possui até agora são:\n
     1- Ajuda
-      A função ajuda é responsável por informar sobre os comandos existentes e como aplica-los.
-      Ela é usada no formato: !ajuda
+      A função ajuda é responsável por informar sobre os comandos existentes e como aplica-los. Ela é usada no formato: 
+      
+      !ajuda
  
     2- Classes
-      A função rolar é responsável por dizer quais são as classes existentes
+      A função classes é responsável por dizer quais são as classes existentes. Ela é usada no formato:
+
+      !classes
 
       
     3- Rolar
-      A função rolar é responsável por rolar um dado de n lados
-      Ela é usada no formato: !rolar (nLados)
+      A função rolar é responsável por rolar um dado de n lados. Ela é usada no formato:
+      
+      !rolar (nLados)
 
     4- Criar Servo
-      A função criar é responsável por criar um servo.
-      Ela é usada no formato: !criar servo (nomeServo) (classeServo)
+      A função criar é responsável por criar um servo. Ela é usada no formato: 
+      
+      !criar servo (nomeServo) (classeServo)
 
     5-Atributos
-      A função pega atributos é responsável por buscar atributos do servo no banco de dados.
-      Ela é usada no formato: !atributos (nomeServo)
+      A função pega atributos é responsável por buscar atributos do servo no banco de dados. Ela é usada no formato: 
+      
+      !atributos (nomeServo)
       
     6-Aplicar Dano
-      A função pega atributos é responsável por buscar atributos do servo no banco de dados.
-      Ela é usada no formato: !aplicar dano (nomeServo) (danoASerAplicado)
+      A função pega atributos é responsável por buscar atributos do servo no banco de dados. Ela é usada no formato: 
+      
+      !aplicar dano (nomeServo) (danoASerAplicado)
+
+    7- Teste de atributo
+      A função Teste de atributo é responsável por testar o atributo de determinado servo. Ela é usada no formato:
+
+      !(atributo) (nomeServo)
     `
 
     message.reply(guideMessage)  
