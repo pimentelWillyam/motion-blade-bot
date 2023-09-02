@@ -4,6 +4,7 @@ import type Profession from "../type/Profession";
 import type Attributes from "../type/Attributes";
 import type IUuidGenerator from '../interface/IUuidGenerator';
 import type AttackResult from '../type/AttackResult'
+import { Message } from "discord.js";
 
 class ServantManager implements IServantManager{
   servantDatabase: Servant[]
