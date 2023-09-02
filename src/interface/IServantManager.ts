@@ -11,6 +11,7 @@ interface IServantManager {
   getServant: (name: string) => Servant
   getServantAttributes: (name: string) => Attributes
   applyDamageToServant: (name: string, damage: number) => Attributes | null
+  healServant: (name: string, attributeToHeal: string, quantityToHeal: number) => void
   rollServantAgility: (name: string, diceResult: number) => number
   rollServantTechnique: (name: string, diceResult: number) => number
   rollServantStrength: (name: string, diceResult: number) => number
