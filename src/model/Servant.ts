@@ -11,6 +11,7 @@ type Servant = {
   isInBattle: boolean
   battlePosition: [number, number]
   guard: number
+  isArmed: boolean
 }
 
 export default Servant
