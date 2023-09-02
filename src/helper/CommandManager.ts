@@ -152,6 +152,11 @@ class CommandManager implements ICommandManager {
     message.reply(`${name} entrou em uma guarde de ${guard} pontos`)
   }
 
+  armServant(message: Message<boolean>, name: string){
+    this.servantManager.armServant(name)
+    message.reply(`${name} voltou a se armar`)
+  }
+
   
 }
 
