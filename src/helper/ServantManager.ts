@@ -257,6 +257,12 @@ class ServantManager implements IServantManager{
     if (defenderAgilityTestResult >= attackerAgilityTestResult) return ('Desvio')
     else return 'Acerto'
   }
+
+  applyGuardOnServant(name: string, guardToBeApplied: number): void{
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error(`O servo ${name} não existe`)
+    this.servantDatabase[servantPosition].guard = guardToBeApplied
+  }
 }
 
 export default ServantManager
