@@ -3,6 +3,7 @@ import type Servant from "../model/Servant";
 import type Profession from "../type/Profession";
 import type Attributes from "../type/Attributes";
 import type IUuidGenerator from '../interface/IUuidGenerator';
+import type AttackResult from '../type/AttackResult'
 
 class ServantManager implements IServantManager{
   servantDatabase: Servant[]
