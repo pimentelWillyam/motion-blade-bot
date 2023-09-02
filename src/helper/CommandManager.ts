@@ -138,6 +138,11 @@ class CommandManager implements ICommandManager {
     if (attributes === null) message.reply(`O servo ${name} foi morto`)
   }
 
+  healServant(message: Message<boolean>, name: string, attributeToHeal: string, quantityToHeal: number): void {
+    this.servantManager.healServant(name, attributeToHeal, quantityToHeal)
+    message.reply(`O servo ${name} descansou e recuperou ${quantityToHeal} de ${attributeToHeal}`)
+  }
+
   rollServantAgility(message: Message<boolean>, name: string){
     const diceResult = this.servantManager.rollServantAgility(name, this.randomNumberGenerator.generate(1,20))
     message.reply(`O servo ${name} tirou ${diceResult} de agilidade`)
