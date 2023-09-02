@@ -137,6 +137,14 @@ class ServantManager implements IServantManager{
         fortitude: 5
       }
     }
+    else if (profession == 'monge'){
+      attributes = {
+        agility: 0, 
+        strength: 3, 
+        technique: 5, 
+        fortitude: 0
+      }
+    }
     else{
       throw new Error('Profissão Inválida')
     }
