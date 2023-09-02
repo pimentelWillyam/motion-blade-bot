@@ -8,6 +8,7 @@ interface ICommandManager {
   createServant(message: Message, name: string, profession: Profession ): void
   getServantAttributes(message: Message, name: string): void
   applyDamageToServant(message: Message, name: string, damage: number): void
+  healServant(message: Message<boolean>, name: string, attributeToHeal: string, quantityToHeal: number): void
   rollServantAgility(message: Message, name: string): void
   rollServantTechnique(message: Message, name: string): void
   rollServantStrength(message: Message, name: string): void
