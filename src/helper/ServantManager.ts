@@ -233,6 +233,30 @@ class ServantManager implements IServantManager{
     return this.servantDatabase[servantPosition].attributes.fortitude + diceResult
   }
 
+  attack(attackerName: string, attackerDiceResult: number, defenderName: string, defenderDiceResult: number): AttackResult{
+    const attackerPosition = this.getServantPositionByName(attackerName)
+    if (attackerPosition == -1) throw new Error(`O servo ${attackerName} não existe`)
+    const defenderPosition = this.getServantPositionByName(defenderName)
+    if (defenderPosition == -1) throw new Error(`O servo ${defenderName} não existe`)
+    this.servantDatabase[attackerPosition].guard = 0
+    if (this.servantDatabase[defenderPosition].profession === 'infante' || this.servantDatabase[defenderPosition].profession === 'escudeiro' || this.servantDatabase[defenderPosition].profession  === 'cavaleiro' || this.servantDatabase[defenderPosition].profession === 'monge') {
+      let attackerTestResult = this.rollServantAgility(attackerName, attackerDiceResult)
+      let defenderTestResult = this.rollServantTechnique(defenderName, defenderDiceResult)
+      if (!this.servantDatabase[attackerPosition].isArmed) attackerTestResult -=5
+      if (!this.servantDatabase[defenderPosition].isArmed) attackerTestResult -=5
+      if (defenderTestResult >= attackerTestResult*2) {
+        this.servantDatabase[attackerPosition].isArmed = false
+        return 'Desarme'
+      }
+      if (defenderTestResult >= attackerTestResult) return 'Defesa'
+      else return 'Acerto'
+    }
+    const attackerAgilityTestResult = this.rollServantAgility(attackerName, attackerDiceResult)
+    const defenderAgilityTestResult = this.rollServantAgility(defenderName, defenderDiceResult)
+    if (defenderAgilityTestResult >= attackerAgilityTestResult*2) return ('Contra-ataque')
+    if (defenderAgilityTestResult >= attackerAgilityTestResult) return ('Desvio')
+    else return 'Acerto'
+  }
 }
 
 export default ServantManager
