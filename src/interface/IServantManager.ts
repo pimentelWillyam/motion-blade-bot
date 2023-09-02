@@ -8,6 +8,7 @@ interface IServantManager {
   deleteServant: (servantMasterId: string, servantId: string) => boolean
   getAttributes: (profession: string) => Attributes  
   getServantPositionByName: (name: string) => number
+  getServant: (name: string) => Servant
   getServantAttributes: (name: string) => Attributes
   applyDamageToServant: (name: string, damage: number) => Attributes | null
   rollServantAgility: (name: string, diceResult: number) => number
