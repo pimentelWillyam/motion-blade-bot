@@ -16,6 +16,7 @@ interface IServantManager {
   rollServantStrength: (name: string, diceResult: number) => number
   rollServantFortitude: (name: string, diceResult: number) => number
   attack: (attackerName: string, attackerDiceResult: number, defenderName: string, defenderDiceResult: number) => AttackResult
+  applyGuardOnServant: (name: string, guardToBeApplied: number) => void
 }
 
 export default IServantManager
