@@ -31,6 +31,12 @@ class ServantManager implements IServantManager{
     throw new Error('Não foi posível remover o servo')
   }
 
+  getServant = (name: string): Servant => {
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error('Não foi posível encontrar o servo referenciado')
+    return this.servantDatabase[servantPosition]
+  }
+
   getServantAgilityByName = (name: string): number => {
     const servantPosition = this.getServantPositionByName(name)
     if (servantPosition != -1) {
