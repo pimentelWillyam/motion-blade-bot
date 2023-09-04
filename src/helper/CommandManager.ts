@@ -100,6 +100,12 @@ class CommandManager implements ICommandManager {
   }
   }
 
+  createNpc(message: Message<boolean>, name: string): void {
+    this.servantManager.createNpc(name)
+    message.reply(`O servo ${name} foi criado com sucesso`)
+    return
+  }
+
   getServant(message: Message<boolean>, name: string): void {
     const servant = this.servantManager.getServant(name)
     const servantAttributesMessage = `
