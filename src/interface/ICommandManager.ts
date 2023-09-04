@@ -2,6 +2,7 @@ import type {Message} from 'discord.js'
 import type Profession from '../type/Profession'
 
 interface ICommandManager {
+  createNpc(message: Message<boolean>, arg1: string): unknown
   help(message: Message): void
   classes(message: Message): void
   roll(message: Message, diceSides: number): void
