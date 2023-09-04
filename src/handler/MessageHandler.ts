@@ -24,6 +24,9 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'servo' && treatedMessage.length == 4){
       this.commandManager.createServant(message, treatedMessage[2], treatedMessage[3] as Profession)
     }
+    else if (treatedMessage[0] == 'criar' && treatedMessage[1] == 'npc' && treatedMessage.length == 3){
+      this.commandManager.createNpc(message, treatedMessage[2])
+    }
     else if (treatedMessage[0] == 'atributos' && treatedMessage.length == 2){
       this.commandManager.getServantAttributes(message, treatedMessage[1])
     }
