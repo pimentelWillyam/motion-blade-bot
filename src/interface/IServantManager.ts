@@ -4,6 +4,7 @@ import type Attributes from "../type/Attributes"
 import type Profession from "../type/Profession"
 
 interface IServantManager {
+  createNpc(name: string): void
   createServant: (masterId: string, name: string, profession: Profession) => Servant
   deleteServant: (servantMasterId: string, servantId: string) => boolean
   getAttributes: (profession: string) => Attributes  
