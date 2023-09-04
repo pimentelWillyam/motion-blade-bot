@@ -221,7 +221,7 @@ class ServantManager implements IServantManager{
       return [servant, damage]      
     }
     else{
-      throw new Error('Erro inesperado na aplicação do dano desse servo')
+      return [servant, 0]
     }
   }
 
