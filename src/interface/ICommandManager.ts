@@ -18,7 +18,7 @@ interface ICommandManager {
   rollServantTechnique(message: Message, name: string): void
   rollServantStrength(message: Message, name: string): void
   rollServantFortitude(message: Message, name: string): void
-  rollServantAttack(message: Message, defenderName: string, attackerName: string): void
+  rollServantAttack(message: Message, defenderName: string, attackerName: string): Promise<void>
   rollServantGuard(message: Message, name: string): void
   armServant(message: Message, name: string): void
 
