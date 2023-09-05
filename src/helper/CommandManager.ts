@@ -240,6 +240,34 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} não possui mais nenhum debuff`)
   }
 
+  levelUpServant(message: Message<boolean>, name: string, enemyStrenghtLevel: string){
+    const randomNumber = this.randomNumberGenerator.generate(1,4)
+    this.Sleeper.sleep(2000)
+    if (enemyStrenghtLevel === 'fraco' && randomNumber<4 || enemyStrenghtLevel === 'medio' && randomNumber<3 || enemyStrenghtLevel === 'forte' && randomNumber<2) {
+      message.reply(`O servo ${name} não foi capaz de melhorar nenhum atributo`)
+      return
+    }
+    message.reply(`O servo ${name} conseguiu melhorar um atributo!`)
+    const attributeToLevelUp = this.randomNumberGenerator.generate(1,4)
+    this.Sleeper.sleep(2000)
+    if (attributeToLevelUp === 1) {
+      this.servantManager.healServant(name, 'agilidade', 1)
+      message.reply(`Servo ${name} melhorou sua agilidade`)
+    }
+    else if (attributeToLevelUp === 2) {
+      this.servantManager.healServant(name, 'tecnica', 1)
+      message.reply(`Servo ${name} melhorou sua tecnica`)
+    }
+    else if (attributeToLevelUp === 3) {
+      this.servantManager.healServant(name, 'força', 1)
+      message.reply(`Servo ${name} melhorou sua força`)
+    }
+    else if (attributeToLevelUp === 4) {
+      this.servantManager.healServant(name, 'fortitude', 1)
+      message.reply(`Servo ${name} melhorou sua fortitude`)
+    }
+  }
+
   
 }
 
