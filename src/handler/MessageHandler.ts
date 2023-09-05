@@ -63,6 +63,10 @@ class MessageHandler implements IMessageHandler {
     }
     else if (treatedMessage[0] === 'bufar' && treatedMessage.length == 3){
       this.commandManager.buffServant(message, treatedMessage[1], parseInt(treatedMessage[2]))
+    }
+    else if (treatedMessage[0] === 'remover' && treatedMessage[1] === 'buff' && treatedMessage.length == 3){
+      this.commandManager.removeServantBuff(message, treatedMessage[2])
+    }
     else{
       message.reply('Comando inexistente')
     }
