@@ -4,6 +4,7 @@ import Servant from '../model/Servant';
 import type IServantManager from '../interface/IServantManager'
 import { type Message } from 'discord.js';
 import type Profession from '../type/Profession';
+import type ISleeper from '../interface/ISleeper';
 
 class CommandManager implements ICommandManager {
   constructor(private readonly randomNumberGenerator: IRandomNumberGenerator, private readonly servantManager: IServantManager) {}
