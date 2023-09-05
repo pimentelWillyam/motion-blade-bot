@@ -175,11 +175,34 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} tirou ${diceResult} de fortitude`)
   }
 
-  rollServantAttack(message: Message<boolean>, attackerName: string, defenderName: string){
-    const attackerDiceResult = this.randomNumberGenerator.generate(1,20)
-    const defenderDiceResult = this.randomNumberGenerator.generate(1,20)
+  async rollServantAttack(message: Message<boolean>, attackerName: string, defenderName: string){
+    let attackerDiceResult = this.randomNumberGenerator.generate(1,20)
+    let defenderDiceResult = this.randomNumberGenerator.generate(1,20)
     const attackResultMessage = this.servantManager.attack(attackerName, attackerDiceResult, defenderName, defenderDiceResult)
-    if (attackResultMessage === 'Acerto') message.reply(`${attackerName} tentou acertar ${defenderName} e conseguiu atingir seu inimigo!`)
+    await this.Sleeper.sleep(2000)
+    message.reply(`${attackerName} tirou ${attackerDiceResult} nos dados`)
+    await this.Sleeper.sleep(2000)
+    message.reply(`${defenderName} tirou ${defenderDiceResult} nos dados`)
+    await this.Sleeper.sleep(2000)
+    if (attackResultMessage === 'Acerto') {
+      message.reply(`${attackerName} tentou acertar ${defenderName} e conseguiu atingir seu inimigo!`)
+      attackerDiceResult = this.randomNumberGenerator.generate(1,10)
+      await this.Sleeper.sleep(2000)
+      message.reply(`${attackerName} tirou ${attackerDiceResult} nos dados`)
+      defenderDiceResult = this.randomNumberGenerator.generate(1,10)
+      await this.Sleeper.sleep(2000)
+      message.reply(`${defenderName} tirou ${defenderDiceResult} nos dados`)
+      const damageToBeDealt = this.servantManager.servantDatabase[this.servantManager.getServantPositionByName(attackerName)].attributes.strength + attackerDiceResult - (this.servantManager.servantDatabase[this.servantManager.getServantPositionByName(defenderName)].attributes.fortitude + defenderDiceResult)
+      await this.Sleeper.sleep(2000)
+      if (damageToBeDealt > 0) { 
+        const defenderAttributes = this.servantManager.applyDamageToServant(defenderName, damageToBeDealt)
+        message.reply(`${defenderName} sofreu um dano de ${damageToBeDealt}!`)
+        if (defenderAttributes === null) message.reply(`${defenderName} foi morto por ${attackerName}`)
+      }
+      else {
+        message.reply(`A variação de dano foi de ${damageToBeDealt} portanto ${defenderName} não foi ferido!`)
+      }
+    }
     if (attackResultMessage === 'Contra-ataque') message.reply(`${attackerName} tentou acertar ${defenderName} mas acabou sofrendo um contra-ataque`)
     if (attackResultMessage === 'Desarme') message.reply(`${attackerName} tentou acertar ${defenderName} mas acabou sendo desarmado`)
     if (attackResultMessage === 'Desvio') message.reply(`${attackerName} tentou acertar ${defenderName} mas ${defenderName} conseguiu se esquivar`)
