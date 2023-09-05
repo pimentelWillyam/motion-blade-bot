@@ -12,6 +12,8 @@ type Servant = {
   battlePosition: [number, number]
   guard: number
   isArmed: boolean
+  buff: number
+  debuff: number
 }
 
 export default Servant
