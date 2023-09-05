@@ -49,7 +49,11 @@ class MessageHandler implements IMessageHandler {
       this.commandManager.rollServantFortitude(message, treatedMessage[1])
     }
     else if (treatedMessage[1] === 'ataca' && treatedMessage.length == 3){
-      this.commandManager.rollServantAttack(message, treatedMessage[0], treatedMessage[2])
+      try {
+        await this.commandManager.rollServantAttack(message, treatedMessage[0], treatedMessage[2])
+      } catch (error) {
+        if ( error instanceof Error) message.reply(error.message)
+      }
     }
     else if (treatedMessage[0] === 'guarda' && treatedMessage.length == 2){
       this.commandManager.rollServantGuard(message, treatedMessage[1])
