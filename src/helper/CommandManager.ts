@@ -225,6 +225,11 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} recebeu um buff de ${buffValue} pontos`)
   }
 
+  removeServantBuff(message: Message<boolean>, name: string){
+    this.servantManager.removeServantBuff(name)
+    message.reply(`O servo ${name} não possui mais nenhum buff`)
+  }
+
   
 }
 
