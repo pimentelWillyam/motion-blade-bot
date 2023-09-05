@@ -287,6 +287,11 @@ class ServantManager implements IServantManager{
     this.servantDatabase[servantPosition].isArmed = true
   }
 
+  buffServant(name: string, buffValue: number): void{
+    const servantPosition = this.getServantPositionByName(name)
+    if (servantPosition == -1) throw new Error(`O servo ${name} não existe`)
+    this.servantDatabase[servantPosition].buff += buffValue
+  }
 }
 
 export default ServantManager
