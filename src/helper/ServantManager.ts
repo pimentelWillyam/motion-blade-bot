@@ -260,6 +260,10 @@ class ServantManager implements IServantManager{
       let defenderTestResult = this.rollServantTechnique(defenderName, defenderDiceResult)
       if (!this.servantDatabase[attackerPosition].isArmed) attackerTestResult -=5
       if (!this.servantDatabase[defenderPosition].isArmed) attackerTestResult -=5
+      attackerTestResult+= this.servantDatabase[attackerPosition].buff
+      attackerTestResult-= this.servantDatabase[attackerPosition].debuff
+      defenderTestResult+= this.servantDatabase[defenderPosition].buff
+      defenderTestResult-= this.servantDatabase[defenderPosition].debuff
       if (defenderTestResult >= attackerTestResult*2) {
         this.servantDatabase[attackerPosition].isArmed = false
         return 'Desarme'
@@ -267,10 +271,16 @@ class ServantManager implements IServantManager{
       if (defenderTestResult >= attackerTestResult) return 'Defesa'
       else return 'Acerto'
     }
-    const attackerAgilityTestResult = this.rollServantAgility(attackerName, attackerDiceResult)
-    const defenderAgilityTestResult = this.rollServantAgility(defenderName, defenderDiceResult)
-    if (defenderAgilityTestResult >= attackerAgilityTestResult*2) return ('Contra-ataque')
-    if (defenderAgilityTestResult >= attackerAgilityTestResult) return ('Desvio')
+    let attackerTestResult = this.rollServantAgility(attackerName, attackerDiceResult)
+    let defenderTestResult = this.rollServantAgility(defenderName, defenderDiceResult)
+    if (!this.servantDatabase[attackerPosition].isArmed) attackerTestResult -=5
+    if (!this.servantDatabase[defenderPosition].isArmed) attackerTestResult -=5
+    attackerTestResult+= this.servantDatabase[attackerPosition].buff
+    attackerTestResult-= this.servantDatabase[attackerPosition].debuff
+    defenderTestResult+= this.servantDatabase[defenderPosition].buff
+    defenderTestResult-= this.servantDatabase[defenderPosition].debuff
+    if (defenderTestResult >= attackerTestResult*2) return ('Contra-ataque')
+    else if (defenderTestResult >= attackerTestResult) return ('Desvio')
     else return 'Acerto'
   }
 
