@@ -9,7 +9,8 @@ class MessageHandler implements IMessageHandler {
   constructor(private readonly commandManager: ICommandManager) {}
 
   async handle (message: Message): Promise<void> {
-    if (message.author.username == 'RPG Master') return 
+    try {
+      if (message.author.username == 'RPG Master') return 
     else if (!this.isACommand(message.content)) return   
     const treatedMessage =  this.treatMessage(message.content)
     if ( treatedMessage[0] == 'ajuda' && treatedMessage.length == 1){
@@ -49,11 +50,7 @@ class MessageHandler implements IMessageHandler {
       this.commandManager.rollServantFortitude(message, treatedMessage[1])
     }
     else if (treatedMessage[1] === 'ataca' && treatedMessage.length == 3){
-      try {
-        await this.commandManager.rollServantAttack(message, treatedMessage[0], treatedMessage[2])
-      } catch (error) {
-        if ( error instanceof Error) message.reply(error.message)
-      }
+      await this.commandManager.rollServantAttack(message, treatedMessage[0], treatedMessage[2])
     }
     else if (treatedMessage[0] === 'guarda' && treatedMessage.length == 2){
       this.commandManager.rollServantGuard(message, treatedMessage[1])
@@ -73,9 +70,16 @@ class MessageHandler implements IMessageHandler {
     else if (treatedMessage[0] === 'remover' && treatedMessage[1] === 'debuff' && treatedMessage.length == 3){
       this.commandManager.removeServantDebuff(message, treatedMessage[2])
     }
+    else if (treatedMessage[1] === 'derrotou' && treatedMessage.length == 3){
+      this.commandManager.levelUpServant(message, treatedMessage[0], treatedMessage[2])
+    }
     else{
       message.reply('Comando inexistente')
     }
+  } catch (error) {
+      if ( error instanceof Error) message.reply(error.message)
+    }
+    
   }
 
   isACommand (message: string): boolean {
