@@ -2,7 +2,7 @@ import type {Message} from 'discord.js'
 import type Profession from '../type/Profession'
 
 interface ICommandManager {
-  levelUpServant(message: Message<boolean>, name: string, enemyStrenghtLevel: string): unknown
+  levelUpServant(message: Message<boolean>, name: string, enemyStrenghtLevel: string): void
   removeServantDebuff(message: Message<boolean>, name: string): void
   debuffServant(message: Message<boolean>, name: string, debuffValue: number): void
   removeServantBuff(message: Message<boolean>, name: string): void
