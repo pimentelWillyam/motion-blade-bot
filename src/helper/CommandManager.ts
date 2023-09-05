@@ -220,6 +220,11 @@ class CommandManager implements ICommandManager {
     message.reply(`${name} voltou a se armar`)
   }
 
+  buffServant(message: Message<boolean>, name: string, buffValue: number){
+    this.servantManager.buffServant(name, buffValue)
+    message.reply(`O servo ${name} recebeu um buff de ${buffValue} pontos`)
+  }
+
   
 }
 
