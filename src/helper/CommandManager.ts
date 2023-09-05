@@ -7,7 +7,7 @@ import type Profession from '../type/Profession';
 import type ISleeper from '../interface/ISleeper';
 
 class CommandManager implements ICommandManager {
-  constructor(private readonly randomNumberGenerator: IRandomNumberGenerator, private readonly servantManager: IServantManager) {}
+  constructor(private readonly randomNumberGenerator: IRandomNumberGenerator, private readonly servantManager: IServantManager, private readonly Sleeper: ISleeper) {}
 
   help(message: Message<boolean>): void {
     const guideMessage = `
