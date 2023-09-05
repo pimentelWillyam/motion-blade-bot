@@ -117,6 +117,9 @@ class CommandManager implements ICommandManager {
     força: ${servant.attributes.strength}
     fortitude: ${servant.attributes.fortitude}
     guarda: ${servant.guard}
+    buff: ${servant.buff}
+    debuff: ${servant.debuff}
+
     `
     message.reply(servantAttributesMessage)
     return
