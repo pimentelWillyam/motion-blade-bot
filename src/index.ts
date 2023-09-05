@@ -8,6 +8,9 @@ import UuidGenerator from './helper/UuidGenerator';
 // importing the random number generator
 import RandomNumberGenerator from './helper/RandomNumberGenerator';
 
+//importing sleeper
+import Sleeper from './helper/Sleeper';
+
 // importing servant manager
 import ServantManager from './helper/ServantManager';
 
@@ -38,7 +41,7 @@ const randomNumberGenerator = new RandomNumberGenerator()
 const servantManager = new ServantManager(uuidGenerator)
 
 // instanciating the command manager
-const commandManager = new CommandManager(randomNumberGenerator, servantManager)
+const commandManager = new CommandManager(randomNumberGenerator, servantManager, new Sleeper())
 // instanciating message handler
 const messageHandler = new MessageHandler(commandManager)
 
