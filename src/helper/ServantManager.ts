@@ -9,7 +9,7 @@ import { Message } from "discord.js";
 class ServantManager implements IServantManager{
   servantDatabase: Servant[]
   constructor(readonly uuidGenerator: IUuidGenerator) {
-    this.servantDatabase = []
+this.servantDatabase = []
   }
   createServant = (masterId: string, name: string, profession: Profession): Servant => {
       if (this.getServantPositionByName(name) === -1) {
