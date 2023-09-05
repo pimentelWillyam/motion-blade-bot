@@ -23,7 +23,7 @@ this.servantDatabase = []
 
   createNpc = (name: string): void => {
     if (this.getServantPositionByName(name) != -1) throw new Error('Já existe um servo com este nome, tente usar o comando novamente com um novo nome')
-    const npc: Servant = {id: this.uuidGenerator.generate(), masterId: '', name, profession: 'barbaro', seniority: 'novice', attributes: {agility: 0, technique: 0, strength: 0, fortitude: 0}, isInBattle: false, battlePosition: [-1,-1], guard: 0, isArmed: true}
+    const npc: Servant = {id: this.uuidGenerator.generate(), masterId: '', name, profession: 'barbaro', seniority: 'novice', attributes: {agility: 0, technique: 0, strength: 0, fortitude: 0}, isInBattle: false, battlePosition: [-1,-1], guard: 0, isArmed: true, buff: 0, debuff: 0}
     this.servantDatabase.push(npc)
 }
 
