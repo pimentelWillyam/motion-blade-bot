@@ -8,7 +8,7 @@ class MessageHandler implements IMessageHandler {
 
   constructor(private readonly commandManager: ICommandManager) {}
 
-  handle (message: Message):void {
+  async handle (message: Message): Promise<void> {
     if (message.author.username == 'RPG Master') return 
     else if (!this.isACommand(message.content)) return   
     const treatedMessage =  this.treatMessage(message.content)
