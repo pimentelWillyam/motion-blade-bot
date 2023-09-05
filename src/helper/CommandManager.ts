@@ -235,6 +235,11 @@ class CommandManager implements ICommandManager {
     message.reply(`O servo ${name} recebeu um debuff de ${debuffValue} pontos`)
   }
 
+  removeServantDebuff(message: Message<boolean>, name: string){
+    this.servantManager.removeServantDebuff(name)
+    message.reply(`O servo ${name} não possui mais nenhum debuff`)
+  }
+
   
 }
 
