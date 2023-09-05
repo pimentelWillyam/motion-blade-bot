@@ -2,6 +2,10 @@ import type {Message} from 'discord.js'
 import type Profession from '../type/Profession'
 
 interface ICommandManager {
+  removeServantDebuff(message: Message<boolean>, arg1: string): unknown
+  debuffServant(message: Message<boolean>, arg1: string, arg2: number): unknown
+  removeServantBuff(message: Message<boolean>, arg1: string): unknown
+  buffServant(message: Message<boolean>, arg1: string, arg2: number): unknown
   createNpc(message: Message<boolean>, name: string): void
   help(message: Message): void
   classes(message: Message): void
