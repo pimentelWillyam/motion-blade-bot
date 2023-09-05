@@ -20,17 +20,8 @@ import CommandManager from './helper/CommandManager'
 // importing message handler
 import MessageHandler from './handler/MessageHandler'
 
-// importing discord library
-import {Client, IntentsBitField, Partials} from 'discord.js'
+import DiscordBot from './DiscordBot';
 
-// importing discord client
-import DiscordClient from './helper/DiscordClient'
-
-//instanciating discord.js client
-const client = new Client(
-  { 
-    intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMembers, IntentsBitField.Flags.GuildMessages,IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.DirectMessages],
-    partials: [Partials.Channel]})
 
 // instanciating uuid generator
 const uuidGenerator = new UuidGenerator()
@@ -46,10 +37,10 @@ const commandManager = new CommandManager(randomNumberGenerator, servantManager,
 const messageHandler = new MessageHandler(commandManager)
 
 //instanciating discord manipulation class
-const discordClient = new DiscordClient(client, messageHandler)
 
-discordClient.start()
-discordClient.listenToMessages()
+const discordBot = new DiscordBot(messageHandler)
+discordBot.client.start()
+discordBot.client.listenToMessages()
 
 
 

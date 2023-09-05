@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "server": "tsnd --respawn ./src/index.ts"
+    "server": "tsnd --respawn ./src/bot/index.ts"
   },
   "devDependencies": {
     "@types/dotenv-safe": "^8.1.2",
