@@ -4,6 +4,11 @@ import type Attributes from "../type/Attributes"
 import type Profession from "../type/Profession"
 
 interface IServantManager {
+  servantDatabase: Servant[]
+  removeServantDebuff(name: string): unknown
+  buffServant(name: string, buffValue: number): unknown
+  debuffServant(name: string, debuffValue: number): unknown
+  removeServantBuff(name: string): unknown
   createNpc(name: string): void
   createServant: (masterId: string, name: string, profession: Profession) => Servant
   deleteServant: (servantMasterId: string, servantId: string) => boolean
