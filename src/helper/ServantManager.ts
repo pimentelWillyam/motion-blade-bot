@@ -13,7 +13,7 @@ this.servantDatabase = []
   }
   createServant = (masterId: string, name: string, profession: Profession): Servant => {
       if (this.getServantPositionByName(name) === -1) {
-        const servant: Servant = {id: this.uuidGenerator.generate(), masterId, name, profession, seniority: 'novice', attributes: this.getAttributes(profession), isInBattle: false, battlePosition: [-1,-1], guard: 0, isArmed: true}
+        const servant: Servant = {id: this.uuidGenerator.generate(), masterId, name, profession, seniority: 'novice', attributes: this.getAttributes(profession), isInBattle: false, battlePosition: [-1,-1], guard: 0, isArmed: true, buff: 0, debuff: 0}
         this.servantDatabase.push(servant)
         return servant
     }
